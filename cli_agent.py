@@ -4,9 +4,9 @@ from ollama import Client
 from orion_server import get_orion_entities
 
 # Variabili d'ambiente configurabili da Docker Compose
-OLLAMA_HOST = os.getenv("OLLAMA_HOST", "http://ollama-backend:11434")
-PILOT_CITIES = os.getenv("PILOT_CITIES", "Aarhus,Athens,Cluj-Napoca,Kajaani,Leuven,Madrid,Parma,Pilsen,Tallinn")
-MODEL_NAME = os.getenv("MODEL_NAME", "mistral-nemo:latest")
+OLLAMA_HOST = os.getenv("OLLAMA_HOST", "http://localhost:11434")
+PILOT_CITIES = os.getenv("PILOT_CITIES", "Aarhus,Athens,Cluj-Napoca,Kajaani,Leuven,Madrid,Parma,Pilsen,Tallinn,Attica,Napoli,Vilnius,Molina")
+MODEL_NAME = os.getenv("MODEL_NAME", "qwen2.5:7b")
 IDRA_TAG = os.getenv("IDRA_TAG", "IDRA")
 
 ollama_client = Client(host=OLLAMA_HOST)
@@ -21,7 +21,7 @@ orion_tool = {
             'properties': {
                 'entity_type': {
                     'type': 'string',
-                    'description': 'NGSI-LD entity type. Use "*" to explore all data of a city. Use "DistributionDCAT-AP" for distributions and "DatasetDCAT-AP" for datasets.'
+                    'description': 'NGSI-LD entity type. Use "*" to explore all data of a city. Use "DistributionDCAT-AP" for distributions and "Dataset" for datasets.'
                 },
                 'city': {
                     'type': 'string',
