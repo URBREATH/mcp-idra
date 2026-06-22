@@ -3,13 +3,7 @@ import json
 from ollama import Client
 from orion_server import get_orion_entities
 
-# Variabili d'ambiente configurabili da Docker Compose
-OLLAMA_HOST = os.getenv("OLLAMA_HOST", "http://localhost:11434")
-PILOT_CITIES = os.getenv("PILOT_CITIES", "Aarhus,Athens,Cluj-Napoca,Kajaani,Leuven,Madrid,Parma,Pilsen,Tallinn,Attica,Napoli,Vilnius,Molina")
-MODEL_NAME = os.getenv("MODEL_NAME", "qwen2.5:7b")
-IDRA_TAG = os.getenv("IDRA_TAG", "IDRA")
-
-ollama_client = Client(host=OLLAMA_HOST)
+from config import ollama_client, PILOT_CITIES, IDRA_TAG
 
 orion_tool = {
     'type': 'function',
@@ -38,9 +32,9 @@ orion_tool = {
 }
 
 
-def chat_loop():
+def chat_loop(model_name):
     print("=== 🏙️ IDRA Data Analyst CLI (Powered by MCP & Ollama) ===")
-    print(f"Active Model: {MODEL_NAME}")
+    print(f"Active Model: {model_name}")
     print(f"Active Pilot Cities: {PILOT_CITIES}")
     print("Type 'exit' or 'quit' to close the session.\n")
 
@@ -66,7 +60,7 @@ def chat_loop():
 
             # 1. Request to Ollama (Temperature 0.0 for deterministic tool usage)
             response = ollama_client.chat(
-                model=MODEL_NAME,
+                model=model_name,
                 messages=messages,
                 tools=[orion_tool],
                 options={'temperature': 0.0, 'num_thread': 12, 'num_ctx': 16384}
@@ -108,7 +102,7 @@ def chat_loop():
                         messages.append({'role': 'tool', 'content': db_result, 'name': 'get_orion_entities'})
 
                         final_response = ollama_client.chat(
-                            model=MODEL_NAME,
+                            model=model_name,
                             messages=messages,
                             options={'temperature': 0.0}
                         )
@@ -121,7 +115,3 @@ def chat_loop():
 
         except Exception as e:
             print(f"\n[❌ Error: {str(e)}]\n")
-
-
-if __name__ == "__main__":
-    chat_loop()

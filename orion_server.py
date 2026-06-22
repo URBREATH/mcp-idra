@@ -4,13 +4,15 @@ import time
 import json
 import re
 import pymongo
+from dotenv import load_dotenv
 from pymongo.errors import PyMongoError
 from bson import json_util
 from mcp.server.fastmcp import FastMCP
 
 mcp = FastMCP("OrionSmartCity")
 
-# --- Configuration (override via environment variables) ---
+load_dotenv()
+
 MONGO_HOST = os.getenv("MONGO_HOST", "localhost")
 MONGO_PORT = os.getenv("MONGO_PORT", "27037")
 DB_NAME = os.getenv("MONGO_DB", "orion")
