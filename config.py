@@ -11,8 +11,7 @@ IDRA_TAG = "IDRA"
 MODELS = {
     "1": ("Mixtral", "mixtral:8x22b", "registry"),
     "2": ("EngGPT", "enggpt", os.getenv("ENGGPT_REPO", "engineering-group/EngGPT2-16B-A3B")),
-    "3": ("Llama 3.2 3B", "llama3.2:3b", "registry"),
-    "4": ("qwen2.5:7b", "qwen2.5:7b", "registry"),
+    "3": ("TildeOpen-30b", "TildeOpen-30b", os.getenv("TILDE_REPO", "TildeAI/TildeOpen-30b"))
 }
 
 # ENGGPT_DIR = os.getenv("ENGGPT_DIR", "./enggpt")
