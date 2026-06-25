@@ -14,10 +14,10 @@ mcp = FastMCP("OrionSmartCity")
 load_dotenv()
 
 MONGO_HOST = os.getenv("MONGO_HOST", "localhost")
-MONGO_PORT = os.getenv("MONGO_PORT", "27037")
+MONGO_PORT = os.getenv("MONGO_PORT", "27017")
 DB_NAME = os.getenv("MONGO_DB", "orion")
 COLLECTION = os.getenv("MONGO_COLLECTION", "entities")
-SEED_FILE = os.getenv("SEED_FILE", "orion.entities.json")
+#SEED_FILE = os.getenv("SEED_FILE", "orion.entities.json")
 
 
 def _log(message: str) -> None:
