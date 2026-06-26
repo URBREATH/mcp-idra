@@ -11,9 +11,10 @@ PILOT_CITIES = "Aarhus,Athens,Cluj-Napoca,Kajaani,Leuven,Madrid,Parma,Pilsen,Tal
 IDRA_TAG = "IDRA"
 
 MODELS = {
-    "1": ("Mixtral", "mixtral:8x22b", "registry"),
-    "2": ("EngGPT", "enggpt", os.getenv("ENGGPT_REPO", "engineering-group/EngGPT2-16B-A3B")),
-    "3": ("TildeOpen-30b", "TildeOpen-30b", os.getenv("TILDE_REPO", "TildeAI/TildeOpen-30b"))
+    "0": ("TildeOpen", "TildeAI/TildeOpen-30b-64k", "TildeAI/TildeOpen-30b-64k", "transformers"),
+    "1": ("Mixtral 8x7B Instruct", "mixtral:instruct", "registry", "ollama"),
+    "2": ("EngGPT2 16B-A3B",       "engineering-group/EngGPT2-16B-A3B",
+                                    "engineering-group/EngGPT2-16B-A3B", "transformers")
 }
 
 ollama_client = Client(host=OLLAMA_HOST)
