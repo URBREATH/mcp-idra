@@ -1,7 +1,4 @@
 import json
-
-from sympy.physics.units import temperature
-
 from orion_server import get_orion_entities
 from config import ollama_client, PILOT_CITIES, IDRA_TAG
 import re

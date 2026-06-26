@@ -3,4 +3,4 @@ pymongo
 ollama
 python-dotenv
 huggingface_hub
-tranformers
+transformers
