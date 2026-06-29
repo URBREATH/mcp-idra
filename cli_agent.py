@@ -72,6 +72,7 @@ class TransformersBackend:
     def __init__(self, model_path):
         from transformers import AutoTokenizer, AutoModelForCausalLM
         self.tokenizer = AutoTokenizer.from_pretrained(model_path, trust_remote_code=True)
+        self.tokenizer.model_input_names = ["input_ids", "attention_mask"]
         self.model = AutoModelForCausalLM.from_pretrained(
             model_path, trust_remote_code=True, torch_dtype="auto"
         )
