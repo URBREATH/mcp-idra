@@ -3,5 +3,5 @@ pymongo
 ollama
 python-dotenv
 huggingface_hub
-transformers>=4.44.2
+transformers==4.57.0
 torch
