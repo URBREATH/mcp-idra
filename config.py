@@ -11,7 +11,7 @@ PILOT_CITIES = "Aarhus,Athens,Cluj-Napoca,Kajaani,Leuven,Madrid,Parma,Pilsen,Tal
 IDRA_TAG = "IDRA"
 
 MODELS = {
-    "0": ("TildeOpen", "hf.co/Mungert/TildeOpen-30b-GGUF:Q4_K_M", "registry", "ollama"),
+    "0": ("TildeOpen-30b-GGUF", "hf.co/Mungert/TildeOpen-30b-GGUF:Q4_K_M", "TildeOpen-30b-q4_k_m.gguf", "ollama"),
     "1": ("Mixtral 8x22", "mixtral:8x22b", "registry", "ollama"),
     "2": ("EngGPT2 16B-A3B",       "engineering-group/EngGPT2-16B-A3B",
                                     "engineering-group/EngGPT2-16B-A3B", "transformers")
